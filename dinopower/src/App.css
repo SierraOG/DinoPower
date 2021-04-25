@@ -1,0 +1,67 @@
+.App {
+  text-align: center;
+  background-color: #120D31;
+  min-height: 100vh;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.AppHeader{
+  margin: 20px auto;
+  color: #F0D3F7;
+}
+
+.Bars {
+  display: flex;
+  flex-direction: row-reverse;
+  align-items: center;
+  justify-content: center;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.SoundBar {
+  background-color: #B98EA7;
+  height: 400px;
+  width: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;  
+  margin: auto 50px;  
+}
+
+.GameBar {
+  background-color: #302F4D;
+  width: 80vw;
+  height: 80vh;
+  margin: auto;  
+}
+
+.ControlPanel {
+  margin: 20px auto;
+}
+
+.Game {
+  margin: auto;  
+}
+
+.GameCanvas {
+  fill: #A57982;
+}
