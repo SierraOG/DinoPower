@@ -1,5 +1,6 @@
 import React, {useState, useEffect } from 'react';
 import Score from './Score';
+import Character from './Character';
 
 export default function Game({gameStarted, gamePaused, gameRestarted}) {
     const [gameOver, setGameOver] = useState(false);
@@ -32,9 +33,12 @@ export default function Game({gameStarted, gamePaused, gameRestarted}) {
     return(
         <div className="Game">
             <Score gameStarted={gameStarted} gamePaused={gamePaused} gameRestarted={gameRestarted}/>
-            <svg width="60vw" height="60vh" className="GameCanvas">
-                <rect x="0" y="0" width="100%" height="100%"/>
-            </svg>
+            
+            <div width="60vw" height="60vh" className="GameCanvas">
+                <Character image={"../img/img_01.png"} x = {500} y = {200} z = {100}/>
+            </div>
         </div>
     )
 }
+
+// <rect x="0" y="0" width="100%" height="100%"/>
