@@ -16,18 +16,18 @@ export default function Score({gameStarted, gamePaused, gameRestarted}) {
 
 
     useEffect(() => {
-        setScore(hours*36000 + minutes*600 + seconds*10);
+
     });
 
-    localStorage.getItem('myData');
     useEffect(() => {
+        setScore(hours*36000 + minutes*600 + seconds*10);
         if (!localStorage.getItem('highscore')){
             localStorage.setItem('highscore', 0);
         }
-        if (score > localStorage.getItem('highscore')) {
-            localStorage.setItem('highscore', score);
+        if (score >= localStorage.getItem('highscore')) {
+            localStorage.setItem('highscore', score+10);
         }
-    },[score]);
+    },[seconds]);
 
     useEffect(() => {
         if (gameStarted){
