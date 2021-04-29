@@ -1,5 +1,6 @@
 import React, {useState, useEffect } from 'react';
 import Score from './Score';
+import Sprite from './Sprite';
 
 export default function Game({gameStarted, gamePaused, gameRestarted}) {
     const [gameOver, setGameOver] = useState(false);
@@ -35,6 +36,7 @@ export default function Game({gameStarted, gamePaused, gameRestarted}) {
             <svg width="60vw" height="60vh" className="GameCanvas">
                 <rect x="0" y="0" width="100%" height="100%"/>
             </svg>
+            <Sprite gamePaused={gamePaused}/>
         </div>
     )
 }

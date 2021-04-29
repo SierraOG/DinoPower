@@ -10,13 +10,21 @@ export default function GameBar() {
 
     function startGame () {
         setGameStarted(true);
+        setGameRestarted(false);
     }
 
     function pauseGame () {
-        setGamePaused(true);
+        if (gamePaused) {
+            setGamePaused(false);
+        }
+        else{
+            setGamePaused(true);
+        }
     }
 
     function restartGame () {
+        setGameStarted(false);
+        setGamePaused(false);
         setGameRestarted(true);
     }
 
@@ -26,7 +34,7 @@ export default function GameBar() {
             <div className="ControlPanel">
                 <Controls />
                 <Button onClick={startGame}> Start </Button>
-                <Button onClick={pauseGame}> Pause </Button>
+                <Button onClick={pauseGame}> {(gamePaused) ? "Resume" : "Pause"} </Button>
                 <Button onClick={restartGame}> Restart </Button>
             </div>
         </div>
