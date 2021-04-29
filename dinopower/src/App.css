@@ -18,6 +18,12 @@
   justify-content: center;
 }
 
+footer{
+  margin-top:16px;
+  font-size:12pt;
+  color:gray;
+}
+
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
     animation: App-logo-spin infinite 20s linear;

@@ -11,6 +11,11 @@ function App() {
         <SoundBar />
         <GameBar />
       </div>
+      <footer>
+          <p>
+              Created May 2021 by: Jake Goins, Margaret Murakami, Sierra Obermoeller-Gilmer, and Ahmad Zakka
+          </p>
+      </footer>
     </div>
   );
 }
