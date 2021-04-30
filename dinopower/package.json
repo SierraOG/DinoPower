@@ -38,6 +38,7 @@
     ]
   },
   "devDependencies": {
+    "react-animation-frame": "^1.0.2",
     "react-timer-hook": "^3.0.2"
   }
 }

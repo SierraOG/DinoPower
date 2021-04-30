@@ -49,15 +49,15 @@ footer{
   width: 200px;
   display: flex;
   align-items: center;
-  justify-content: space-evenly;  
-  margin: auto 50px;  
+  justify-content: space-evenly;
+  margin: auto 50px;
 }
 
 .GameBar {
   background-color: #302F4D;
   width: 80vw;
   height: 80vh;
-  margin: auto;  
+  margin: auto;
 }
 
 .ControlPanel {
@@ -65,9 +65,14 @@ footer{
 }
 
 .Game {
-  margin: auto;  
+  margin: auto;
+  height: 80%;
+  width: 100%;
 }
 
 .GameCanvas {
-  fill: #A57982;
+  background-color: #A57982;
+  height: 90%;
+  width: 90%;
+  margin: auto;
 }
