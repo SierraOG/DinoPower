@@ -35,13 +35,14 @@ export default function Character({x, y, z, gamePaused}) {
     }, [frame, gamePaused]);
 
     return(
-        <div>
-            <img style = {{
-                position: "absolute",
+        <img style = {{
+                position: "relative",
                 left: string_x,
                 top: string_y,
                 zIndex: `{z}`,
+                margin: 'none',
+                height: '40px',
+                width: '30px'
             }} src={imgArray[frame]} alt="sprite"/>
-        </div>
     );
 }
