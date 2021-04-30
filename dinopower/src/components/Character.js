@@ -1,9 +1,10 @@
 import React, {useState, useEffect } from 'react';
-import bug from '../img/img_01.png';
+import Sprite from './Sprite';
+
 //import styled, {keyframes} from 'styled-components';
 //import {bounce} from 'react-animations';
 const ReactAnimationTimer = require('react-animation-frame');
-export default function Character({image, x, y, z}) {
+export default function Character({x, y, z, gamePaused}) {
     let string_x;
     let string_y;
     string_x = String(x) + 'px';
@@ -18,13 +19,7 @@ export default function Character({image, x, y, z}) {
         zIndex: `{z}`,
         }}
         >
-        <img src = {bug} alt = "bug"/>
+        <Sprite gamePaused={gamePaused}/>
         </div>
     );
 }
-
-
-//        backgroundRepeat: "no_repeat",
-//        backgroundImage: 'url(${image})',
-//        backgroundPosition: '-${x}px -${y}px',
-//    display: "inline-block",
