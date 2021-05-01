@@ -45,12 +45,26 @@ footer{
 
 .SoundBar {
   background-color: #B98EA7;
-  height: 400px;
-  width: 200px;
+  color: rgb(63, 63, 63);
+  height: 80vh;
+  width: 15%;
+  flex-direction: column;
   display: flex;
   align-items: center;
   justify-content: space-evenly;
-  margin: auto 50px;
+  margin: auto;
+}
+
+.SoundItem {
+  width: 100%;
+}
+
+.SoundLabel {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  margin: auto;
+  width: 70%;
 }
 
 .GameBar {
