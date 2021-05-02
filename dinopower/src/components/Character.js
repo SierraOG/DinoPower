@@ -11,7 +11,7 @@ import sp8 from '../img/tile007.png';
 //import styled, {keyframes} from 'styled-components';
 //import {bounce} from 'react-animations';
 const ReactAnimationTimer = require('react-animation-frame');
-export default function Character({x, y, z, gamePaused, gameStarted, ducking}) {
+export default function Character({x, y, z, gamePaused, gameStarted, ducking, gameRestarted}) {
     let string_x;
     let string_y;
     string_x = String(x) + '%';
@@ -54,6 +54,10 @@ export default function Character({x, y, z, gamePaused, gameStarted, ducking}) {
         }, 100);
         return () => clearInterval(interval);
     }, [frame, gamePaused, gameStarted]);
+
+    useEffect(() =>{
+        setFrame(0);
+    }, [gameRestarted]);
 
     return(
         <img style = {(ducking) ? duck : style } src={imgArray[frame]} alt="sprite"/>

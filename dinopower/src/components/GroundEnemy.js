@@ -4,13 +4,12 @@ import sp2 from '../img/dino2.png';
 import sp3 from '../img/dino3.png';
 import sp4 from '../img/dino4.png';
 
-export default function GroundEnemy({charX, charY, initX, gamePaused, gameStarted, setGameOver}) {
+export default function GroundEnemy({charX, charY, initX, gamePaused, gameStarted, setGameOver, gameRestarted}) {
     const [x, setX] = useState(initX);
     const [frame, setFrame] = useState(0);
     const imgArray = [sp1, sp2, sp3, sp4];
     const frameCount = 4;
 
-    
     useEffect(() => {
         const interval = setInterval(() => {
             // console.log(frame);
@@ -28,6 +27,11 @@ export default function GroundEnemy({charX, charY, initX, gamePaused, gameStarte
         }, 100);
         return () => clearInterval(interval);
     }, [frame, gamePaused, gameStarted]);
+
+    useEffect(() =>{
+        setX(initX);
+        setFrame(0);
+    }, [gameRestarted]);
 
     useEffect(() => {
         if (!gamePaused && gameStarted){
