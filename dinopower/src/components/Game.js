@@ -2,13 +2,14 @@ import React, {useState, useEffect } from 'react';
 import Score from './Score';
 import Sprite from './Sprite';
 import Character from './Character';
+import Ground from './Ground';
 
 let vel = new Set();
 
 export default function Game({gameStarted, gamePaused, gameRestarted}) {
     const [gameOver, setGameOver] = useState(false);
-    const [x,setX] = useState(-40);
-    const [y,setY] = useState(70);
+    const [x,setX] = useState(-20);
+    const [y,setY] = useState(-20);
     console.log('first vel=',vel);
     //const [vel,update] = useState(new Set());
     const [needsUpdate, update] = useState(false);
@@ -87,8 +88,12 @@ export default function Game({gameStarted, gamePaused, gameRestarted}) {
     return(
         <div className="Game">
             <Score gameStarted={gameStarted} gamePaused={gamePaused} gameRestarted={gameRestarted}/>
+            
             <div className="GameCanvas">
+                <div className = "Ground">
+                </div>
                 <Character x = {x} y = {y} z = {100} gamePaused = {gamePaused}/>
+
             </div>
         </div>
     )

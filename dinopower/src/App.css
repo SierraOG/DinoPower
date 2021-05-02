@@ -71,8 +71,29 @@ footer{
 }
 
 .GameCanvas {
-  background-color: #A57982;
+  background-color: green;
+  /* Modified for sliding background */
+  overflow: hidden;
   height: 90%;
   width: 90%;
   margin: auto;
+}
+
+/* Modified for sliding background */
+.Ground {
+  background: url("./img/forest2-game.jpg");
+  background-size: 1536px 100%;
+  height: 100%;
+  width: 5076px;
+  animation: slide 60s linear infinite;
+
+}
+
+@keyframes slide {
+  0%{
+    transform: translate3d(0, 0, 0);
+  }
+  100%{
+    transform: translate3d(-626px, 0, 0); /* The image width */
+  }
 }
