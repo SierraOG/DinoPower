@@ -11,11 +11,32 @@ import sp8 from '../img/8.png';
 //import styled, {keyframes} from 'styled-components';
 //import {bounce} from 'react-animations';
 const ReactAnimationTimer = require('react-animation-frame');
-export default function Character({x, y, z, gamePaused}) {
+export default function Character({x, y, z, gamePaused, gameStarted, ducking}) {
     let string_x;
     let string_y;
     string_x = String(x) + '%';
     string_y = String(y) + '%';
+
+    const style = {
+        position: "relative",
+        left: string_x,
+        top: string_y,
+        zIndex: `{z}`,
+        margin: 'none',
+        height: '100px',
+        width: '70px'
+    };
+    
+    const duck = {
+        position: "relative",
+        left: string_x,
+        top: String(y + 5) + '%',
+        zIndex: `{z}`,
+        margin: 'none',
+        height: '40px',
+        width: '70px'
+    };
+
     const [frame, setFrame] = useState(0);
     const imgArray = [sp1, sp2, sp3, sp4, sp5, sp6, sp7, sp8];
     const frameCount = 8;
@@ -24,7 +45,7 @@ export default function Character({x, y, z, gamePaused}) {
         const interval = setInterval(() => {
             // console.log(frame);
             // console.log(gamePaused);
-            if (!gamePaused){
+            if (!gamePaused && gameStarted){
                 setFrame(frame + 1);
                 if (frame >= frameCount - 1) {
                     setFrame(0);
@@ -32,17 +53,9 @@ export default function Character({x, y, z, gamePaused}) {
             }
         }, 100);
         return () => clearInterval(interval);
-    }, [frame, gamePaused]);
+    }, [frame, gamePaused, gameStarted]);
 
     return(
-        <img style = {{
-                position: "relative",
-                left: string_x,
-                top: string_y,
-                zIndex: `{z}`,
-                margin: 'none',
-                height: '40px',
-                width: '30px'
-            }} src={imgArray[frame]} alt="sprite"/>
+        <img style = {(ducking) ? duck : style } src={imgArray[frame]} alt="sprite"/>
     );
 }

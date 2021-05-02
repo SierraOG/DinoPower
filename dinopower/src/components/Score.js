@@ -1,7 +1,7 @@
 import React, {useState, useEffect } from 'react';
 import { useStopwatch } from 'react-timer-hook';
 
-export default function Score({gameStarted, gamePaused, gameRestarted}) {
+export default function Score({gameStarted, gamePaused, gameRestarted, gameOver}) {
     const [score, setScore] = useState(0);
     const {
         seconds,
@@ -33,7 +33,7 @@ export default function Score({gameStarted, gamePaused, gameRestarted}) {
         if (gameStarted){
             start();
         }
-        if (gamePaused){
+        if (gamePaused || gameOver){
             pause();
         }
         if (gameRestarted){
