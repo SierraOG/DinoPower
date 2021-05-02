@@ -16,9 +16,6 @@ export default function GroundEnemy({charX, charY, initX, gamePaused, gameStarte
             // console.log(frame);
             // console.log(gamePaused);
             if (!gamePaused && gameStarted){
-                if (Math.sqrt(Math.pow(Math.abs(charX - x), 2) + Math.pow(Math.abs(charY - -30), 2)) < 3) {
-                    setGameOver(true);
-                }
                 setX(x => (x - 1))
                 setFrame(frame + 1);
                 if (frame >= frameCount - 1) {
@@ -32,6 +29,15 @@ export default function GroundEnemy({charX, charY, initX, gamePaused, gameStarte
         return () => clearInterval(interval);
     }, [frame, gamePaused, gameStarted]);
 
+    useEffect(() => {
+            // console.log(frame);
+            // console.log(gamePaused);
+        if (!gamePaused && gameStarted){
+            if (Math.sqrt(Math.pow(Math.abs(charX - x), 2) + Math.pow(Math.abs(charY - -30), 2)) < 3) {
+                setGameOver(true);
+            }
+        }
+    }, [charX]);
 
     return(
         <>

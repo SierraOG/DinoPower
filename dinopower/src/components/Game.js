@@ -16,7 +16,7 @@ export default function Game({gameStarted, gamePaused, gameRestarted, gameOver, 
     const [needsUpdate, update] = useState(false);
 
     const jump = () => {
-        const h = [5, 10, 15, 20, -20, -15, -10, -5];
+        const h = [5, 10, 15, 20, 0, 0, 0, 0, -20, -15, -10, -5];
         let idx = 0;
         const interval = setInterval(() => {
             // console.log(frame);
@@ -34,7 +34,7 @@ export default function Game({gameStarted, gamePaused, gameRestarted, gameOver, 
                 //     setY(0);
                 // }
             // }
-        }, 150);
+        }, 50);
         return () => clearInterval(interval);
     }
 
@@ -129,8 +129,8 @@ export default function Game({gameStarted, gamePaused, gameRestarted, gameOver, 
                 </div>
                 <Character x={x} y={y} z={100} gameStarted={gameStarted} gamePaused={gamePaused} ducking={ducking}/>
                 <GroundEnemy gameStarted={gameStarted} gamePaused={gamePaused} initX={60} charX={x} charY={y} setGameOver={setGameOver}/>
-                <GroundEnemy gameStarted={gameStarted} gamePaused={gamePaused} initX={70} charX={x} charY={y} setGameOver={setGameOver}/>
-                <GroundEnemy gameStarted={gameStarted} gamePaused={gamePaused} initX={80} charX={x} charY={y} setGameOver={setGameOver}/>
+                <GroundEnemy gameStarted={gameStarted} gamePaused={gamePaused} initX={100} charX={x} charY={y} setGameOver={setGameOver}/>
+                {/*<GroundEnemy gameStarted={gameStarted} gamePaused={gamePaused} initX={110} charX={x} charY={y} setGameOver={setGameOver}/>*/}
             </div>
         </div>
     )
