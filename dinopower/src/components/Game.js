@@ -90,7 +90,7 @@ export default function Game({gameStarted, gamePaused, gameRestarted}) {
             <Score gameStarted={gameStarted} gamePaused={gamePaused} gameRestarted={gameRestarted}/>
             
             <div className="GameCanvas">
-                <div className = "Ground">
+                <div className = {(gamePaused || !gameStarted) ? "PausedGround" : "Ground"}>
                 </div>
                 <Character x = {x} y = {y} z = {100} gamePaused = {gamePaused}/>
 

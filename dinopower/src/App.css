@@ -103,11 +103,20 @@ footer{
 
 }
 
+.PausedGround {
+  background: url("./img/forest2-game.jpg");
+  background-size: 1536px 100%;
+  height: 100%;
+  width: 5076px;
+  animation: slide 60s linear infinite;
+  animation-play-state: paused;
+}
+
 @keyframes slide {
   0%{
     transform: translate3d(0, 0, 0);
   }
   100%{
-    transform: translate3d(-626px, 0, 0); /* The image width */
+    transform: translate3d(-1536px, 0, 0); /* The image width */
   }
 }
