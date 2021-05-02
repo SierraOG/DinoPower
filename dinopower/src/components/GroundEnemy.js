@@ -30,19 +30,22 @@ export default function GroundEnemy({charX, charY, initX, gamePaused, gameStarte
     }, [frame, gamePaused, gameStarted]);
 
     useEffect(() => {
-            // console.log(frame);
-            // console.log(gamePaused);
         if (!gamePaused && gameStarted){
-            if (Math.sqrt(Math.pow(Math.abs(charX - x), 2) + Math.pow(Math.abs(charY - -30), 2)) < 3) {
+            var a = charX - (x + 10);
+            var b = charY - -30;
+            var c = Math.sqrt( a*a + b*b );
+            if (c < 0.5) {
+                // console.log("game over dist ", c);
+                // console.log("character ", charX, charY);
+                // console.log("enemy ", x + 10, -30);
                 setGameOver(true);
             }
         }
-    }, [charX]);
+    }, [x, charX, charY]);
 
     return(
         <>
-            <img src={imgArray[frame]} style={{position: "relative", left:x+"%", top:"-30%", zIndex:"150", margin:'None', height: '20%',
-        width: '10%'}} alt="slime"/>
+            <img src={imgArray[frame]} style={{position: "relative", left:x+"%", top:"-30%", zIndex:"150", margin:'None', height: '20%', width: '10%'}} alt="dino"/>
         </>
     )
 }

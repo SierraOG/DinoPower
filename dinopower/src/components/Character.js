@@ -1,12 +1,12 @@
 import React, {useState, useEffect } from 'react';
-import sp1 from '../img/1.png';
-import sp2 from '../img/2.png';
-import sp3 from '../img/3.png';
-import sp4 from '../img/4.png';
-import sp5 from '../img/5.png';
-import sp6 from '../img/6.png';
-import sp7 from '../img/7.png';
-import sp8 from '../img/8.png';
+import sp1 from '../img/tile000.png';
+import sp2 from '../img/tile001.png';
+import sp3 from '../img/tile002.png';
+import sp4 from '../img/tile003.png';
+import sp5 from '../img/tile004.png';
+import sp6 from '../img/tile005.png';
+import sp7 from '../img/tile006.png';
+import sp8 from '../img/tile007.png';
 
 //import styled, {keyframes} from 'styled-components';
 //import {bounce} from 'react-animations';
@@ -23,8 +23,8 @@ export default function Character({x, y, z, gamePaused, gameStarted, ducking}) {
         top: string_y,
         zIndex: `{z}`,
         margin: 'none',
-        height: '100px',
-        width: '70px'
+        height: '16%',
+        width: '8%'
     };
     
     const duck = {
@@ -33,8 +33,8 @@ export default function Character({x, y, z, gamePaused, gameStarted, ducking}) {
         top: String(y + 5) + '%',
         zIndex: `{z}`,
         margin: 'none',
-        height: '40px',
-        width: '70px'
+        height: '8%',
+        width: '8%'
     };
 
     const [frame, setFrame] = useState(0);

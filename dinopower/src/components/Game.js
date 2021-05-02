@@ -11,7 +11,7 @@ export default function Game({gameStarted, gamePaused, gameRestarted, gameOver, 
     const [x,setX] = useState(-20);
     const [y,setY] = useState(-30);
     const [ducking, setDucking] = useState(false);
-    console.log('first vel=',vel);
+    // console.log('first vel=',vel);
     //const [vel,update] = useState(new Set());
     const [needsUpdate, update] = useState(false);
 
@@ -92,21 +92,21 @@ export default function Game({gameStarted, gamePaused, gameRestarted, gameOver, 
 
     function move(){
         if(vel.has(0) && x > -49) {
-            setX(x => (x-0.01));
-            console.log(x,y);
+            setX(x => (x-0.025));
+            // console.log(x,y);
         }
         if(vel.has(1) && y > 0) {
             // setY(y => (y-0.01));
             // jump();
-            console.log(x,y);
+            // console.log(x,y);
         }
         if(vel.has(2) && x < 49) {
-            setX(x => (x+0.01));
-            console.log(x,y);
+            setX(x => (x+0.025));
+            // console.log(x,y);
         }
         if(vel.has(3) && y < 80) {
             setY(y => (y+0.01));
-            console.log(x,y);
+            // console.log(x,y);
         }
     }
 
