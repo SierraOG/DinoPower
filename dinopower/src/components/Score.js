@@ -1,3 +1,4 @@
+import { isMuiElement } from '@material-ui/core';
 import React, {useState, useEffect } from 'react';
 import { useStopwatch } from 'react-timer-hook';
 
@@ -15,14 +16,19 @@ export default function Score({gameStarted, gamePaused, gameRestarted, gameOver}
     } = useStopwatch({ autoStart: false })
 
     useEffect(() => {
-        setScore(hours*36000 + minutes*600 + seconds*10);
+        if (isRunning){
+            setScore(hours*36000 + minutes*600 + seconds*10);
+        }
+    },[seconds]);
+
+    useEffect(() => {
         if (!localStorage.getItem('highscore')){
             localStorage.setItem('highscore', '0');
         }
         if (score >= localStorage.getItem('highscore')) {
-            localStorage.setItem('highscore', score+10);
+            localStorage.setItem('highscore', score);
         }
-    },[seconds]);
+    },[score]);
 
     useEffect(() => {
         if (gameStarted){
@@ -33,8 +39,10 @@ export default function Score({gameStarted, gamePaused, gameRestarted, gameOver}
         }
         if (gameRestarted){
             reset();
+            pause();
+            setScore(0);
         }
-    });
+    }, [gameStarted, gamePaused, gameRestarted]);
 
     return(
         <div className="Score">
