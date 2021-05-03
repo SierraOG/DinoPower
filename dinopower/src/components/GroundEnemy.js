@@ -50,8 +50,8 @@ export default function GroundEnemy({charX, charY, initX, gamePaused, gameStarte
 
     return(
         <>
-            <img src={imgArray[frame]} style={{position: "relative", left:String(x - num*10)+"%", top:"-30%", zIndex:"150", margin:'None', height: '20%', width: '10%'}} alt="dino"/>
-            <img className="App-logo" src={claw} style={{position: "relative", left:String(x - num*10-22)+"%", top:"-27%", zIndex:"140", margin:'None', height: '20%', width: '20%'}} alt="claw"/>
+            <img src={imgArray[frame]} style={{position: "relative", left:String(x - num*30)+"%", top:"-30%", zIndex:"150", margin:'None', height: '20%', width: '10%'}} alt="dino"/>
+            <img className="App-logo" src={claw} style={{position: "relative", left:String(x - num*30 - 22)+"%", top:"-27%", zIndex:"140", margin:'None', height: '20%', width: '20%'}} alt="claw"/>
             {/* <img src={imgArray[frame]} style={{position: "absolute", left:x+"%", top:"50%", zIndex:"150", margin:'None', height: '10%', width: '5%'}} alt="dino"/> */}
             </>
     )

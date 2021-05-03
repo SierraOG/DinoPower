@@ -8,7 +8,7 @@ import GroundEnemy from './GroundEnemy';
 let vel = new Set();
 
 export default function Game({gameStarted, gamePaused, gameRestarted, gameOver, setGameOver}) {
-    const [x,setX] = useState(-20);
+    const [x,setX] = useState(0);
     const [y,setY] = useState(-30);
     const [ducking, setDucking] = useState(false);
     // console.log('first vel=',vel);
@@ -83,13 +83,13 @@ export default function Game({gameStarted, gamePaused, gameRestarted, gameOver, 
     });
 
     useEffect(() =>{
-        setX(-20);
+        setX(0);
         setY(-30);
         setGameOver(false);
     }, [gameRestarted]);
 
     function move(){
-        if(vel.has(0) && x > -22) {
+        if(vel.has(0) && x > -2) {
             setX(x => (x-0.025));
             // console.log(x,y);
         }
