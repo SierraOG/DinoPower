@@ -6,14 +6,14 @@ import Ground from './Ground';
 import GroundEnemy from './GroundEnemy';
 
 let xmin = -20;
-let xmax = 90;
+let xmax = 70;
 let initx = 0;
 let inity = -40;
 let dx = 0.5;
 
 export default function Game({gameStarted, gamePaused, gameRestarted, gameOver, setGameOver}) {
-    const [x,setX] = useState(0);
-    const [y,setY] = useState(-40);
+    const [x,setX] = useState(initx);
+    const [y,setY] = useState(inity);
     const [ducking, setDucking] = useState(false);
     const [jumping, setJumping] = useState(false);
     const [incx,setincx] = useState(false);
@@ -40,17 +40,17 @@ export default function Game({gameStarted, gamePaused, gameRestarted, gameOver, 
             const interval = setInterval(() => {
                 let inc = 0;
                 let dec = 0;
-                if (incx){
+                if (incx && x < xmax){
                     inc = dx;
                 }
-                if (decx) {
+                if (decx && x > xmin) {
                     dec = -dx;
                 }
                 setX(x => (x+inc+dec));
             }, 10);
             return () => clearInterval(interval);
         }
-    }, [incx, decx, gameStarted, gamePaused, gameOver]);
+    }, [incx, decx, x, gameStarted, gamePaused, gameOver]);
 
     const handleKeyPress = (event) => {
         if (!gameOver && !gamePaused && gameStarted){
@@ -93,8 +93,8 @@ export default function Game({gameStarted, gamePaused, gameRestarted, gameOver, 
     }
 
     useEffect(() =>{
-        setX(0);
-        setY(-40);
+        setX(initx);
+        setY(inity);
         setGameOver(false);
         setincx(false);
         setdecx(false);
