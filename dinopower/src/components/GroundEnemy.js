@@ -22,7 +22,7 @@ export default function GroundEnemy({charX, charY, initX, gamePaused, gameStarte
                     setFrame(0);
                 }
                 if (x < -60) {
-                    setX(55);
+                    setX(90);
                 }
             }
         }, 100);

@@ -98,7 +98,7 @@ export default function Game({gameStarted, gamePaused, gameRestarted, gameOver, 
         //     // jump();
         //     // console.log(x,y);
         // }
-        if(vel.has(2) && x < 80) {
+        if(vel.has(2) && x < 90) {
             setX(x => (x+0.025));
             // console.log(x,y);
         }
