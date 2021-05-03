@@ -7,7 +7,7 @@ import sp5 from '../img/tile004.png';
 import sp6 from '../img/tile005.png';
 import sp7 from '../img/tile006.png';
 import sp8 from '../img/tile007.png';
-import bub from '../img/bub.png';
+import bub from '../img/bubp.png';
 
 //import styled, {keyframes} from 'styled-components';
 //import {bounce} from 'react-animations';
@@ -18,9 +18,9 @@ export default function Character({x, y, z, gamePaused, gameStarted, ducking, ga
     let string_y;
     let bub_y;
     string_x = String(x) + '%';
-    bub_x = String(x-7.5) + '%';
+    bub_x = String(x-10) + '%';
     string_y = String(y) + '%';
-    bub_y = String(y+2) + '%';
+    bub_y = String(y+7) + '%';
 
     const style = {
         position: "relative",
@@ -46,11 +46,9 @@ export default function Character({x, y, z, gamePaused, gameStarted, ducking, ga
         position: "relative",
         left: bub_x,
         top: bub_y,
-        zIndex: 50,
+        zIndex: 250,
         margin: 'none',
-        height: '19%',
-        width: '7%'
-    };
+        height: '30%'};
 
     const [frame, setFrame] = useState(0);
     const imgArray = [sp1, sp2, sp3, sp4, sp5, sp6, sp7, sp8];

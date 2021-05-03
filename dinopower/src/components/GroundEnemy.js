@@ -36,8 +36,8 @@ export default function GroundEnemy({charX, charY, initX, gamePaused, gameStarte
 
     useEffect(() => {
         if (!gamePaused && gameStarted){
-            var a = charX - (x + 5);
-            var b = charY - -30;
+            var a = charX - (x + 10 - 5*(num));
+            var b = charY - -40;
             var c = Math.sqrt( a*a + b*b );
             if (c < 0.5) {
                 console.log("game over dist ", c);
@@ -50,8 +50,8 @@ export default function GroundEnemy({charX, charY, initX, gamePaused, gameStarte
 
     return(
         <>
-            <img src={imgArray[frame]} style={{position: "relative", left:String(x - num*30)+"%", top:"-30%", zIndex:"150", margin:'None', height: '20%', width: '10%'}} alt="dino"/>
-            <img className={(gamePaused || !gameStarted) ? "Fire-breath-paused" : "Fire-breath"} src={fire} style={{position: "relative", left:String(x - num*30 - 17)+"%", top:"-27%", zIndex:"140", margin:'None', height: '20%'}} alt="fire"/>
+            <img src={imgArray[frame]} style={{position: "relative", left:String(x - num*30)+"%", top:"-40%", zIndex:"150", margin:'None', height: '20%', width: '10%'}} alt="dino"/>
+            <img className={(gamePaused || !gameStarted) ? "Fire-breath-paused" : "Fire-breath"} src={fire} style={{position: "relative", left:String(x - num*30 - 17)+"%", top:"-37%", zIndex:"140", margin:'None', height: '20%'}} alt="fire"/>
             {/* <img src={imgArray[frame]} style={{position: "absolute", left:x+"%", top:"50%", zIndex:"150", margin:'None', height: '10%', width: '5%'}} alt="dino"/> */}
             </>
     )
