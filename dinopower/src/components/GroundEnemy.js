@@ -3,6 +3,7 @@ import sp1 from '../img/dino1.png';
 import sp2 from '../img/dino2.png';
 import sp3 from '../img/dino3.png';
 import sp4 from '../img/dino4.png';
+import claw from '../img/fire.png';
 
 export default function GroundEnemy({charX, charY, initX, gamePaused, gameStarted, setGameOver, gameRestarted, num}) {
     const [x, setX] = useState(initX);
@@ -50,6 +51,7 @@ export default function GroundEnemy({charX, charY, initX, gamePaused, gameStarte
     return(
         <>
             <img src={imgArray[frame]} style={{position: "relative", left:String(x - num*10)+"%", top:"-30%", zIndex:"150", margin:'None', height: '20%', width: '10%'}} alt="dino"/>
+            <img className="App-logo" src={claw} style={{position: "relative", left:String(x - num*10-22)+"%", top:"-27%", zIndex:"140", margin:'None', height: '20%', width: '20%'}} alt="claw"/>
             {/* <img src={imgArray[frame]} style={{position: "absolute", left:x+"%", top:"50%", zIndex:"150", margin:'None', height: '10%', width: '5%'}} alt="dino"/> */}
             </>
     )
