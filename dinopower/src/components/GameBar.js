@@ -34,15 +34,15 @@ export default function GameBar() {
             setGameStarted(false);
         }
     }, [gameOver]);
-    
+
     return(
         <div className="GameBar">
             <Game gameStarted={gameStarted} gamePaused={gamePaused} gameRestarted={gameRestarted} gameOver={gameOver} setGameOver={setGameOver}/>
             <div className="ControlPanel">
                 <Controls />
                 <Button onClick={startGame}> Start </Button>
-                <Button onClick={pauseGame}> {(gamePaused) ? "Resume" : "Pause"} </Button>
-                <Button onClick={restartGame}> Restart </Button>
+                <Button onClick={pauseGame} disabled={(gameStarted) ? false : true}> {(gamePaused) ? "Resume" : "Pause"} </Button>
+                <Button onClick={restartGame} disabled={(gameStarted || gameOver) ? false : true}> Restart </Button>
             </div>
         </div>
     )
