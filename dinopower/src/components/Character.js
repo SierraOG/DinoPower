@@ -77,7 +77,7 @@ export default function Character({x, y, z, gamePaused, gameStarted, ducking, ga
     return(
         <>
             <img style = {(ducking) ? duck : style } src={imgArray[frame]} alt="sprite"/>
-            <img className="bub" style={bubble} src={bub} alt="bubble"/>
+            <img className={(gamePaused || !gameStarted) ? "bub-paused" : "bub"} style={bubble} src={bub} alt="bubble"/>
         </>
     );
 }
