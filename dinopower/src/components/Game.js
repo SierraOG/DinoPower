@@ -5,8 +5,8 @@ import Character from './Character';
 import Ground from './Ground';
 import GroundEnemy from './GroundEnemy';
 
-let xmin = -20;
-let xmax = 70;
+let xmin = -10;
+let xmax = 80;
 let initx = 0;
 let inity = -40;
 let dx = 0.5;
