@@ -4,7 +4,7 @@ import sp2 from '../img/dino2.png';
 import sp3 from '../img/dino3.png';
 import sp4 from '../img/dino4.png';
 
-export default function GroundEnemy({charX, charY, initX, gamePaused, gameStarted, setGameOver, gameRestarted}) {
+export default function GroundEnemy({charX, charY, initX, gamePaused, gameStarted, setGameOver, gameRestarted, num}) {
     const [x, setX] = useState(initX);
     const [frame, setFrame] = useState(0);
     const imgArray = [sp1, sp2, sp3, sp4];
@@ -35,13 +35,13 @@ export default function GroundEnemy({charX, charY, initX, gamePaused, gameStarte
 
     useEffect(() => {
         if (!gamePaused && gameStarted){
-            var a = charX - (x + 10);
+            var a = charX - (x + 5);
             var b = charY - -30;
             var c = Math.sqrt( a*a + b*b );
             if (c < 0.5) {
-                // console.log("game over dist ", c);
-                // console.log("character ", charX, charY);
-                // console.log("enemy ", x + 10, -30);
+                console.log("game over dist ", c);
+                console.log("character ", charX, charY);
+                console.log("enemy ", x, -30);
                 setGameOver(true);
             }
         }
@@ -49,7 +49,8 @@ export default function GroundEnemy({charX, charY, initX, gamePaused, gameStarte
 
     return(
         <>
-            <img src={imgArray[frame]} style={{position: "relative", left:x+"%", top:"-30%", zIndex:"150", margin:'None', height: '20%', width: '10%'}} alt="dino"/>
-        </>
+            <img src={imgArray[frame]} style={{position: "relative", left:String(x - num*10)+"%", top:"-30%", zIndex:"150", margin:'None', height: '20%', width: '10%'}} alt="dino"/>
+            {/* <img src={imgArray[frame]} style={{position: "absolute", left:x+"%", top:"50%", zIndex:"150", margin:'None', height: '10%', width: '5%'}} alt="dino"/> */}
+            </>
     )
 }

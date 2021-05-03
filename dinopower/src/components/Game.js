@@ -126,9 +126,11 @@ export default function Game({gameStarted, gamePaused, gameRestarted, gameOver, 
                 <div className = {(gamePaused || !gameStarted) ? "PausedGround" : "Ground"}>
                 </div>
                 <Character x={x} y={y} z={100} gameStarted={gameStarted} gamePaused={gamePaused} gameRestarted={gameRestarted} ducking={ducking}/>
-                <GroundEnemy gameStarted={gameStarted} gamePaused={gamePaused} gameRestarted={gameRestarted} initX={60} charX={x} charY={y} setGameOver={setGameOver}/>
-                <GroundEnemy gameStarted={gameStarted} gamePaused={gamePaused} gameRestarted={gameRestarted} initX={100} charX={x} charY={y} setGameOver={setGameOver}/>
-                <GroundEnemy gameStarted={gameStarted} gamePaused={gamePaused} gameRestarted={gameRestarted} initX={110} charX={x} charY={y} setGameOver={setGameOver}/>
+                {/* <div > */}
+                    <GroundEnemy gameStarted={gameStarted} gamePaused={gamePaused} gameRestarted={gameRestarted} initX={60} charX={x} charY={y} setGameOver={setGameOver} num={0}/>
+                    <GroundEnemy gameStarted={gameStarted} gamePaused={gamePaused} gameRestarted={gameRestarted} initX={100} charX={x} charY={y} setGameOver={setGameOver} num={1}/>
+                    <GroundEnemy gameStarted={gameStarted} gamePaused={gamePaused} gameRestarted={gameRestarted} initX={130} charX={x} charY={y} setGameOver={setGameOver} num={2}/>
+                {/* </div> */}
             </div>
         </div>
     )
