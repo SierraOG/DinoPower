@@ -129,7 +129,7 @@ export default function Game({gameStarted, gamePaused, gameRestarted, gameOver, 
                 {/* <div > */}
                     <GroundEnemy gameStarted={gameStarted} gamePaused={gamePaused} gameRestarted={gameRestarted} initX={60} charX={x} charY={y} setGameOver={setGameOver} num={0}/>
                     <GroundEnemy gameStarted={gameStarted} gamePaused={gamePaused} gameRestarted={gameRestarted} initX={100} charX={x} charY={y} setGameOver={setGameOver} num={1}/>
-                    <GroundEnemy gameStarted={gameStarted} gamePaused={gamePaused} gameRestarted={gameRestarted} initX={130} charX={x} charY={y} setGameOver={setGameOver} num={2}/>
+                    {/*<GroundEnemy gameStarted={gameStarted} gamePaused={gamePaused} gameRestarted={gameRestarted} initX={130} charX={x} charY={y} setGameOver={setGameOver} num={2}/>*/}
                 {/* </div> */}
             </div>
         </div>

@@ -126,3 +126,18 @@ footer{
     transform: translate3d(-1536px, 0, 0); /* The image width */
   }
 }
+
+@media (prefers-reduced-motion: no-preference) {
+  .bub {
+    animation: bub-spin infinite 2s linear;
+  }
+}
+
+@keyframes bub-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
