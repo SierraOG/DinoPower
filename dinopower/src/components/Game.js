@@ -10,12 +10,12 @@ let xmax = 80;
 let initx = 0;
 let inity = -40;
 let dx = 0.5;
+let jumping = false;
 
 export default function Game({gameStarted, gamePaused, gameRestarted, gameOver, setGameOver}) {
     const [x,setX] = useState(initx);
     const [y,setY] = useState(inity);
     const [ducking, setDucking] = useState(false);
-    const [jumping, setJumping] = useState(false);
     const [incx,setincx] = useState(false);
     const [decx,setdecx] = useState(false);
 
@@ -23,13 +23,14 @@ export default function Game({gameStarted, gamePaused, gameRestarted, gameOver, 
         const h = [5, 10, 15, 20, 0, 0, 0, 0, 0, 0, 0, -20, -15, -10, -5];
         let idx = 0;
         const interval = setInterval(() => {
-            console.log("jump ", y, "add ", h[idx]);
+            //console.log("jump ", y, "add ", h[idx]);
             setY(y => (y-h[idx]), console.log("y inside ", y));
+            //console.log(y, " y position");
             idx ++;
             if (idx > h.length - 1) {
                 idx = 0;
                 clearInterval(interval);
-                setJumping(false);
+                jumping = false;
             }
         }, 50);
         return () => clearInterval(interval);
@@ -59,10 +60,11 @@ export default function Game({gameStarted, gamePaused, gameRestarted, gameOver, 
                     setdecx(true);
                     break;
                 case 38:
+
                     if (!jumping){
                         jump();
-                    }
-                    setJumping(true);
+                        jumping = true;
+                    }                    
                     break;
                 case 39:
                     setincx(true);

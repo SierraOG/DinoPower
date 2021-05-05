@@ -10,13 +10,15 @@ export default function GroundEnemy({charX, charY, initX, gamePaused, gameStarte
     const [frame, setFrame] = useState(0);
     const imgArray = [sp1, sp2, sp3, sp4];
     const frameCount = 4;
+    const [speed, setSpeed] = useState(1);
 
     useEffect(() => {
         const interval = setInterval(() => {
             // console.log(frame);
             // console.log(gamePaused);
             if (!gamePaused && gameStarted){
-                setX(x => (x - 1))
+                setX(x => (x - speed))
+                setSpeed(speed => (speed + 0.001))
                 setFrame(frame + 1);
                 if (frame >= frameCount - 1) {
                     setFrame(0);
@@ -32,6 +34,7 @@ export default function GroundEnemy({charX, charY, initX, gamePaused, gameStarte
     useEffect(() =>{
         setX(initX);
         setFrame(0);
+        setSpeed(1);
     }, [gameRestarted]);
 
     useEffect(() => {
