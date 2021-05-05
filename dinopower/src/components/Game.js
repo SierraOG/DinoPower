@@ -5,54 +5,74 @@ import Character from './Character';
 import Ground from './Ground';
 import GroundEnemy from './GroundEnemy';
 
-let vel = new Set();
+let xmin = -10;
+let xmax = 80;
+let initx = 0;
+let inity = -40;
+let dx = 0.5;
+let jumping = false;
 
 export default function Game({gameStarted, gamePaused, gameRestarted, gameOver, setGameOver}) {
-    const [x,setX] = useState(0);
-    const [y,setY] = useState(-30);
+    const [x,setX] = useState(initx);
+    const [y,setY] = useState(inity);
     const [ducking, setDucking] = useState(false);
-    // console.log('first vel=',vel);
-    //const [vel,update] = useState(new Set());
-    const [needsUpdate, update] = useState(false);
+    const [incx,setincx] = useState(false);
+    const [decx,setdecx] = useState(false);
 
     const jump = () => {
-        const h = [5, 10, 15, 20, 0, 0, 0, 0, -20, -15, -10, -5];
+        const h = [5, 10, 15, 20, 0, 0, 0, 0, 0, 0, 0, -20, -15, -10, -5];
         let idx = 0;
         const interval = setInterval(() => {
-            console.log("jump ", y, "add ", h[idx]);
+            //console.log("jump ", y, "add ", h[idx]);
             setY(y => (y-h[idx]), console.log("y inside ", y));
+            //console.log(y, " y position");
             idx ++;
             if (idx > h.length - 1) {
                 idx = 0;
                 clearInterval(interval);
+                jumping = false;
             }
         }, 50);
         return () => clearInterval(interval);
     }
 
+    useEffect(() => {
+        if (!gameOver && !gamePaused && gameStarted){
+            const interval = setInterval(() => {
+                let inc = 0;
+                let dec = 0;
+                if (incx && x < xmax){
+                    inc = dx;
+                }
+                if (decx && x > xmin) {
+                    dec = -dx;
+                }
+                setX(x => (x+inc+dec));
+            }, 10);
+            return () => clearInterval(interval);
+        }
+    }, [incx, decx, x, gameStarted, gamePaused, gameOver]);
+
     const handleKeyPress = (event) => {
         if (!gameOver && !gamePaused && gameStarted){
             switch (event.keyCode) {
                 case 37:
-                    vel.add(0);
-                    //setX(x => (x-10));
+                    setdecx(true);
                     break;
                 case 38:
-                    // vel.add(1);
-                    // setY(y => (y-10));
-                    jump();
+
+                    if (!jumping){
+                        jump();
+                        jumping = true;
+                    }                    
                     break;
                 case 39:
-                    vel.add(2);
-                    // setX(x => (x+10));
+                    setincx(true);
                     break;
                 case 40:
-                    // vel.add(3);
                     setDucking(true);
-                    // setY(y => (y+10));
                     break;
             }
-            move();
         }
     }
 
@@ -60,16 +80,14 @@ export default function Game({gameStarted, gamePaused, gameRestarted, gameOver, 
         if (!gameOver && !gamePaused && gameStarted){
             switch (event.keyCode) {
                 case 37:
-                    vel.delete(0);
+                    setdecx(false);
                     break;
                 case 38:
-                    vel.delete(1);
                     break;
                 case 39:
-                    vel.delete(2);
+                    setincx(false);
                     break;
                 case 40:
-                    // vel.delete(3);
                     setDucking(false);
                     break;
             } 
@@ -77,36 +95,12 @@ export default function Game({gameStarted, gamePaused, gameRestarted, gameOver, 
     }
 
     useEffect(() =>{
-        if (!gameOver && !gamePaused && gameStarted){
-            move();
-        }
-    });
-
-    useEffect(() =>{
-        setX(0);
-        setY(-30);
+        setX(initx);
+        setY(inity);
         setGameOver(false);
+        setincx(false);
+        setdecx(false);
     }, [gameRestarted]);
-
-    function move(){
-        if(vel.has(0) && x > -2) {
-            setX(x => (x-0.025));
-            // console.log(x,y);
-        }
-        // if(vel.has(1) && y > 0) {
-        //     // setY(y => (y-0.01));
-        //     // jump();
-        //     // console.log(x,y);
-        // }
-        if(vel.has(2) && x < 90) {
-            setX(x => (x+0.025));
-            // console.log(x,y);
-        }
-        // if(vel.has(3) && y < 80) {
-        //     // setY(y => (y+0.01));
-        //     // console.log(x,y);
-        // }
-    }
 
     useEffect(() => {
         document.addEventListener("keydown", handleKeyPress, false);
@@ -129,7 +123,7 @@ export default function Game({gameStarted, gamePaused, gameRestarted, gameOver, 
                 {/* <div > */}
                     <GroundEnemy gameStarted={gameStarted} gamePaused={gamePaused} gameRestarted={gameRestarted} initX={60} charX={x} charY={y} setGameOver={setGameOver} num={0}/>
                     <GroundEnemy gameStarted={gameStarted} gamePaused={gamePaused} gameRestarted={gameRestarted} initX={100} charX={x} charY={y} setGameOver={setGameOver} num={1}/>
-                    {/*<GroundEnemy gameStarted={gameStarted} gamePaused={gamePaused} gameRestarted={gameRestarted} initX={130} charX={x} charY={y} setGameOver={setGameOver} num={2}/>*/}
+                    <GroundEnemy gameStarted={gameStarted} gamePaused={gamePaused} gameRestarted={gameRestarted} initX={140} charX={x} charY={y} setGameOver={setGameOver} num={2}/>
                 {/* </div> */}
             </div>
         </div>

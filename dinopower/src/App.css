@@ -25,8 +25,8 @@ footer{
 }
 
 @media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 0.5s linear;
+  .Fire-breath {
+    animation: Fire-breath-spin infinite 0.5s linear;
   }
 }
 
@@ -34,7 +34,7 @@ footer{
   color: #61dafb;
 }
 
-@keyframes App-logo-spin {
+@keyframes Fire-breath-spin {
   0% {
     transform: rotate(330deg);
   }
@@ -47,6 +47,11 @@ footer{
   100% {
     transform: rotate(330deg);
   }
+}
+
+.Fire-breath-paused {
+  animation: Fire-breath-spin infinite 0.5s linear;
+  animation-play-state: paused;
 }
 
 .SoundBar {
@@ -131,6 +136,11 @@ footer{
   .bub {
     animation: bub-spin infinite 2s linear;
   }
+}
+
+.bub-paused {
+  animation: bub-spin infinite 2s linear;
+  animation-play-state: paused;
 }
 
 @keyframes bub-spin {
