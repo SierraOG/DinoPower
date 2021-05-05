@@ -12,7 +12,7 @@ import bub from '../img/bubp.png';
 //import styled, {keyframes} from 'styled-components';
 //import {bounce} from 'react-animations';
 const ReactAnimationTimer = require('react-animation-frame');
-export default function Character({x, y, z, gamePaused, gameStarted, ducking, gameRestarted}) {
+export default function Character({x, y, z, gamePaused, gameStarted, ducking, gameRestarted, lives}) {
     let string_x;
     let bub_x;
     let string_y;
@@ -50,6 +50,14 @@ export default function Character({x, y, z, gamePaused, gameStarted, ducking, ga
         margin: 'none',
         height: '30%'};
 
+     const pop = {
+        position: "relative",
+        left: bub_x,
+        top: bub_y,
+        zIndex: -100,
+        margin: 'none',
+        height: '30%'};
+
     const [frame, setFrame] = useState(0);
     const imgArray = [sp1, sp2, sp3, sp4, sp5, sp6, sp7, sp8];
     const frameCount = 8;
@@ -75,7 +83,7 @@ export default function Character({x, y, z, gamePaused, gameStarted, ducking, ga
     return(
         <>
             <img style = {(ducking) ? duck : style } src={imgArray[frame]} alt="sprite"/>
-            <img className={(gamePaused || !gameStarted) ? "bub-paused" : "bub"} style={bubble} src={bub} alt="bubble"/>
+            <img className={(gamePaused || !gameStarted) ? "bub-paused" : "bub"} style={(lives == 0) ? pop : bubble} src={bub} alt="bubble"/>
         </>
     );
 }
