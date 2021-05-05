@@ -1,5 +1,6 @@
 # DinoPower
-Our game is a side-scrolling endless survival game, reminiscent of the no-Internet Google Chrome dinosaur jumping game. To run our project, please click on the following link: https://dinopower-sierrao.vercel.app/
+Our game is a side-scrolling endless survival game, reminiscent of the no-Internet Google Chrome dinosaur jumping game. To run our project, please click on the following link: https://dinopower-sierrao.vercel.app/. This game has been verified as 
+working in Google Chrome and Microsoft Edge.
 
 ## Central GUI
 To read the controls for the game, click the Controls button.
