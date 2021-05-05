@@ -18,6 +18,8 @@ export default function Game({gameStarted, gamePaused, gameRestarted, gameOver, 
     const [ducking, setDucking] = useState(false);
     const [incx,setincx] = useState(false);
     const [decx,setdecx] = useState(false);
+    const [lives, setLives] = useState(1);
+
 
     const jump = () => {
         const h = [5, 10, 15, 20, 0, 0, 0, 0, 0, 0, 0, -20, -15, -10, -5];
@@ -100,6 +102,7 @@ export default function Game({gameStarted, gamePaused, gameRestarted, gameOver, 
         setGameOver(false);
         setincx(false);
         setdecx(false);
+        setLives(1);
     }, [gameRestarted]);
 
     useEffect(() => {
@@ -119,11 +122,11 @@ export default function Game({gameStarted, gamePaused, gameRestarted, gameOver, 
             <div className="GameCanvas">
                 <div className = {(gamePaused || !gameStarted) ? "PausedGround" : "Ground"}>
                 </div>
-                <Character x={x} y={y} z={100} gameStarted={gameStarted} gamePaused={gamePaused} gameRestarted={gameRestarted} ducking={ducking}/>
+                <Character lives={lives} x={x} y={y} z={100} gameStarted={gameStarted} gamePaused={gamePaused} gameRestarted={gameRestarted} ducking={ducking}/>
                 {/* <div > */}
-                    <GroundEnemy gameStarted={gameStarted} gamePaused={gamePaused} gameRestarted={gameRestarted} initX={60} charX={x} charY={y} setGameOver={setGameOver} num={0}/>
-                    <GroundEnemy gameStarted={gameStarted} gamePaused={gamePaused} gameRestarted={gameRestarted} initX={100} charX={x} charY={y} setGameOver={setGameOver} num={1}/>
-                    <GroundEnemy gameStarted={gameStarted} gamePaused={gamePaused} gameRestarted={gameRestarted} initX={140} charX={x} charY={y} setGameOver={setGameOver} num={2}/>
+                    <GroundEnemy lives={lives} setLives={setLives} gameStarted={gameStarted} gamePaused={gamePaused} gameRestarted={gameRestarted} initX={60} charX={x} charY={y} setGameOver={setGameOver} num={0}/>
+                    <GroundEnemy lives={lives} setLives={setLives} gameStarted={gameStarted} gamePaused={gamePaused} gameRestarted={gameRestarted} initX={100} charX={x} charY={y} setGameOver={setGameOver} num={1}/>
+                    <GroundEnemy lives={lives} setLives={setLives} gameStarted={gameStarted} gamePaused={gamePaused} gameRestarted={gameRestarted} initX={140} charX={x} charY={y} setGameOver={setGameOver} num={2}/>
                 {/* </div> */}
             </div>
         </div>

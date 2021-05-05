@@ -3,9 +3,9 @@ import sp1 from '../img/dino1.png';
 import sp2 from '../img/dino2.png';
 import sp3 from '../img/dino3.png';
 import sp4 from '../img/dino4.png';
-import fire from '../img/firep.png';
+import fire from '../img/firep.png'; 
 
-export default function GroundEnemy({charX, charY, initX, gamePaused, gameStarted, setGameOver, gameRestarted, num}) {
+export default function GroundEnemy({charX, charY, initX, gamePaused, gameStarted, setGameOver, gameRestarted, num, lives, setLives}) {
     const [x, setX] = useState(initX);
     const [frame, setFrame] = useState(0);
     const imgArray = [sp1, sp2, sp3, sp4];
@@ -43,10 +43,17 @@ export default function GroundEnemy({charX, charY, initX, gamePaused, gameStarte
             var b = charY - -40;
             var c = Math.sqrt( a*a + b*b );
             if (c < 0.5) {
-                console.log("game over dist ", c);
-                console.log("character ", charX, charY);
-                console.log("enemy ", x, -30);
-                setGameOver(true);
+                //console.log("game over dist ", c);
+                //console.log("character ", charX, charY);
+                //console.log("enemy ", x, -30);
+                if (lives == 1){
+                    setLives(lives => (lives + 100));
+                    setTimeout(()=>{setLives(0)}, 1000);
+
+
+                } else if (lives == 0){
+                    setGameOver(true);
+                }                
             }
         }
     }, [x, charX, charY]);
