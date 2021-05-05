@@ -1,8 +1,41 @@
-Our final project is a game called Dinopower, built from the ground-up as a React App. As such, our file structure is based
-on the default file structure for a basic React App. 
+Our final project is a game called Dinopower, built from the ground-up as a React App. As such, our file structure is 
+based on the default file structure for a basic React App. We chiefly used React Hooks rather than Classes, as components 
+with useStates and useEffects are more user-friendly than React's class imports structure.
 
 In lieu of a main project .pde file, our main project file this time is called index.js. It is a Javascript file 
 found in the /dinopower/src directory, and it creates a webpage for playing our game. The file App.js represents 
-the app itself, which is rendered by index.js in a web browser to compose the game itself. The App.js file imports 
-the gamebar and soundbar components; the source code of these files is located in the /dinopower/src/components directory. The names of every component file accurately 
-describe the contents and purpose of each file.
+the app itself, which is rendered by index.js in a web browser to compose the actual game. The App.js file imports 
+the gamebar and soundbar components; the source code of these files is located in the /dinopower/src/components directory. 
+The names of every component .js file accurately describe the contents and purpose of each file. Images are stored in 
+/dinopower/src/img, and audio files are stored in /dinopower/src/audio.
+
+The main premise of our game is to rack up the highest score by surviving as long as possible. You play as a small 
+junimo sprite stuck in an infinitely looping scene populated by fire-breathing dinosaurs. You are protected by a 
+bubble-shield; however, if the fire touches your bubble, you will die! To avoid the fire, maneouver your character 
+around the scene with the left and right arrow keys, jump over ground dinosaurs with the up-arrow, and duck under 
+flying dinosaurs with the down-arrow. Enemies respawn endlessly, and they get faster as time progresses. Once you do die, 
+your first score will be saved in your browser's cache as the new high score. This value is calculated based on the time 
+that you have survived: every second is worth 10 points. THis is displayed at the top of the screen, and the high score 
+will remain until you surpass your top score (or if you delete the variable from the browser cache).
+
+The game makes up the central GUI of the screen. Four buttons control the mechanics of the game: "Controls", "Start", 
+"Pause/Resume", and "Restart". Buttons are grayed-out out if they are not currently clickable. The left GUI controls the 
+music of the game. There are three audio tracks that can be overlaid ontop of each other. "Music" plays a music track, 
+"Arcade Sounds" simulates the sounds of an arcade room, and "People Talking" serves to remind you of the good ol' days 
+when you could be around other people. The "Play/Pause" buttons control the audio, and the volume slider determines the 
+volume of the respective track in the mix.
+
+
+Work Breakdown:
+Jake: I programmed the player's primary animation of keyboard-input motion with the arrow keys using a Set of integers, 
+where each integer represents an arrow-key button press. A loop verified which directions were being used at a given time, 
+and the appropriate actions were then executed as long as the button is held down. This allowed for smooth motion as well as diagonal motion.
+I also designed the oscillating fire animations for the dinosaurs and the rotation animation for the main character's shield.
+Finally, I devised the Scoring system: how it ticks up, updates the high score, and follows the mechanics of the state of the game.
+
+Meg:
+
+Sierra:
+
+Zak:
+
