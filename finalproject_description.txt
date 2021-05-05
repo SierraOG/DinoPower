@@ -1,0 +1,8 @@
+Our final project is a game called Dinopower, built from the ground-up as a React App. As such, our file structure is based
+on the default file structure for a basic React App. 
+
+In lieu of a main project .pde file, our main project file this time is called index.js. It is a Javascript file 
+found in the /dinopower/src directory, and it creates a webpage for playing our game. The file App.js represents 
+the app itself, which is rendered by index.js in a web browser to compose the game itself. The App.js file imports 
+the gamebar and soundbar components; the source code of these files is located in the /dinopower/src/components directory. The names of every component file accurately 
+describe the contents and purpose of each file.
