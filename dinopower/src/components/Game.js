@@ -103,6 +103,7 @@ export default function Game({gameStarted, gamePaused, gameRestarted, gameOver, 
         setincx(false);
         setdecx(false);
         setLives(1);
+        setDucking(false);
     }, [gameRestarted]);
 
     useEffect(() => {
