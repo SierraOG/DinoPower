@@ -39,5 +39,8 @@ Sierra: I set up the React app and programmed the GUIs of the system. This inclu
 and view the controls of the game and also includes the sound bar which has controls for pausing and playing audio and has a slider 
 to control the volume. I hosted the app and did some styling and helped others with writing their sections in React.
 
-Zak: I worked on implementing a sliding background image for the game. To do so, I collected a free licensed background and assembled it on Gravit.  Afterward I implemented a CSS function that loop the background every minute. I also worked on increasing the enemy’s speed as the game progresses. The enemy’s speeds are then reset after each game iteration. Moreover, I fix bugs throughout the game and finalised the shield implementation.
+Zak: I worked on implementing a sliding background image for the game. To do so, I collected a free licensed background 
+and assembled it on Gravit.  Afterward I implemented a CSS function that loop the background every minute. 
+I also worked on increasing the enemy’s speed as the game progresses. The enemy’s speeds are then reset after each game 
+iteration. Moreover, I fix bugs throughout the game and finalised the shield implementation.
 
