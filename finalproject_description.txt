@@ -11,15 +11,14 @@ The names of every component .js file accurately describe the contents and purpo
 
 The main premise of our game is to rack up the highest score by surviving as long as possible. You play as a small 
 junimo sprite stuck in an infinitely looping scene populated by fire-breathing dinosaurs. You are protected by a 
-bubble-shield; however, if the fire touches your bubble, you will die! To avoid the fire, maneouver your character 
-around the scene with the left and right arrow keys, jump over ground dinosaurs with the up-arrow, and duck under 
-flying dinosaurs with the down-arrow. Enemies respawn endlessly, and they get faster as time progresses. Once you do die, 
-your first score will be saved in your browser's cache as the new high score. This value is calculated based on the time 
-that you have survived: every second is worth 10 points. THis is displayed at the top of the screen, and the high score 
+bubble-shield; however, if the fire touches your bubble, it will pop. Get hit by fire again, and you will die! 
+To avoid the fire, maneouver your character around the scene with the left and right arrow keys, 
+and jump over ground dinosaurs with the up-arrow. Enemies respawn endlessly in waves of three, and they get faster as time progresses. Once you do die, your first score will be saved in your browser's cache as the new high score. This value is calculated based on the time 
+that you have survived: every second is worth 10 points. This is displayed at the top of the screen, and the high score 
 will remain until you surpass your top score (or if you delete the variable from the browser cache).
 
 The game makes up the central GUI of the screen. Four buttons control the mechanics of the game: "Controls", "Start", 
-"Pause/Resume", and "Restart". Buttons are grayed-out out if they are not currently clickable. The left GUI controls the 
+"Pause/Resume", and "Restart". Buttons are grayed-out out if they are not currently clickable. The right GUI controls the 
 music of the game. There are three audio tracks that can be overlaid ontop of each other. "Music" plays a music track, 
 "Arcade Sounds" simulates the sounds of an arcade room, and "People Talking" serves to remind you of the good ol' days 
 when you could be around other people. The "Play/Pause" buttons control the audio, and the volume slider determines the 
@@ -33,8 +32,8 @@ and the appropriate actions were then executed as long as the button is held dow
 I also designed the oscillating fire animations for the dinosaurs and the rotation animation for the main character's shield.
 Finally, I devised the Scoring system: how it ticks up, updates the high score, and follows the mechanics of the state of the game.
 
-Meg: I helped add the main character sprite to the game, as well as set up the primary animations for the main character. I also worked with 
-Jake to program keyboard-input motion that scales with the size of a game user's speed.
+Meg: I helped add the main character sprite to the game, as well as set up the primary animations for the main character. I also worked 
+with Jake to program keyboard-input motion that scales with the size of a game user's speed.
 
 Sierra: I set up the React app and programmed the GUIs of the system. This includes the game bar buttons to start, pause, resart, 
 and view the controls of the game and also includes the sound bar which has controls for pausing and playing audio and has a slider 
