@@ -35,7 +35,9 @@ Finally, I devised the Scoring system: how it ticks up, updates the high score, 
 
 Meg:
 
-Sierra:
+Sierra: I set up the React app and programmed the GUIs of the system. This includes the game bar buttons to start, pause, resart, 
+and view the controls of the game and also includes the sound bar which has controls for pausing and playing audio and has a slider 
+to control the volume. I hosted the app and did some styling and helped others with writing their sections in React.
 
 Zak:
 
