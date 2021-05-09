@@ -13,16 +13,22 @@ The main premise of our game is to rack up the highest score by surviving as lon
 junimo sprite stuck in an infinitely looping scene populated by fire-breathing dinosaurs. You are protected by a 
 bubble-shield; however, if the fire touches your bubble, it will pop. Get hit by fire again, and you will die! 
 To avoid the fire, maneouver your character around the scene with the left and right arrow keys, 
-and jump over ground dinosaurs with the up-arrow. Enemies respawn endlessly in waves of three, and they get faster as time progresses. Once you do die, your first score will be saved in your browser's cache as the new high score. This value is calculated based on the time 
-that you have survived: every second is worth 10 points. This is displayed at the top of the screen, and the high score 
-will remain until you surpass your top score (or if you delete the variable from the browser cache).
+and jump over ground dinosaurs with the up-arrow. Enemies respawn endlessly in waves of three, and they get faster as time progresses. 
+Once you do die, your first score will be saved in your browser's cache as the new high score. This value is calculated based on the time 
+that you have survived: every second is worth 10 points. Your current score is displayed at the top of the screen, and the high score 
+will be saved in the browser cache once the current score beates the previous high score. 
+It will be read from the cache and displayed to the screen, and it stays until you surpass your high score again 
+(or if you delete the variable from the browser cache).
 
+
+There are two GUI systems in the game.
 The game makes up the central GUI of the screen. Four buttons control the mechanics of the game: "Controls", "Start", 
 "Pause/Resume", and "Restart". Buttons are grayed-out out if they are not currently clickable. The right GUI controls the 
 music of the game. There are three audio tracks that can be overlaid ontop of each other. "Music" plays a music track, 
 "Arcade Sounds" simulates the sounds of an arcade room, and "People Talking" serves to remind you of the good ol' days 
 when you could be around other people. The "Play/Pause" buttons control the audio, and the volume slider determines the 
-volume of the respective track in the mix.
+volume of the respective track in the mix. The sound can be muted with the pause button, or the volume slider can be 
+set all the way to the left.
 
 
 Work Breakdown:
